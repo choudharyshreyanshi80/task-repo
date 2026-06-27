@@ -54,7 +54,7 @@ output_rdd = spark.sparkContext.parallelize([
     for emp in top3
 ])
 
-output_rdd.saveAsTextFile(output_path)
+output_rdd.coalesce(1).saveAsTextFile(output_path)
 
 print("\nTop 3 highest-paid employees saved successfully.")
 
